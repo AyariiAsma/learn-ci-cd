@@ -1,21 +1,21 @@
 
-name: My First CI Pipeline
+name: CI Pipeline
 
 on:
   push:
   pull_request:
 
 jobs:
-  first-job:
+  validate:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Display a message
-        run: echo "My first CI pipeline works!"
+      - name: Get the source code
+        uses: actions/checkout@v4
 
-      - name: Display environment information
+      - name: Check project files
         run: |
-          echo "Operating system:"
-          uname -a
-          echo "Current directory:"
-          pwd
+          ls -la
+
+      - name: Run validation
+        run: bash ./validate.sh
