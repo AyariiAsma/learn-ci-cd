@@ -1,0 +1,21 @@
+
+name: My First CI Pipeline
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Display a message
+        run: echo "My first CI pipeline works!"
+
+      - name: Display environment information
+        run: |
+          echo "Operating system:"
+          uname -a
+          echo "Current directory:"
+          pwd
